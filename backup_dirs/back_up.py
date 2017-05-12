@@ -21,7 +21,6 @@ def main_script(bu_dirs, dest_dir):
     # create a file object
     log = open(dest_dir + '/log.txt', 'a')
 
-
     # create an list of strings to write to log file
     writeLines = []
 
@@ -31,7 +30,6 @@ def main_script(bu_dirs, dest_dir):
         # change directory each iteration
         # otherwise os.path.isfile() checks for files in cwd
         os.chdir(one_dir)
-        print "##########CWD: ", os.getcwd()
         for f in os.listdir(one_dir):
             if os.path.isfile(f):
                 # copy the files
@@ -62,6 +60,12 @@ if MY_SYSTEM == "Darwin":
     # create folder if doesn't exist
     if not os.path.exists(MYUSBPATH):
         os.makedirs(MYUSBPATH)
+
+    BU_DIRS_TEST = raw_input("drag and drop dirs into terminal window, or separate by a space")
+    BU_DIRS_TEST.split()
+    print BU_DIRS_TEST
+
+
 
     os.path.ismount(MYUSBPATH) # returns true if selected drive is mounted
 
